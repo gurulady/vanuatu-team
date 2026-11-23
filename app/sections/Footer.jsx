@@ -7,7 +7,7 @@ export default function Footer() {
             Vanuatu Brandsavage Team
           </p>
           <p className="text-coconut-ivory/70 text-sm mb-4">
-            Independent BrandSavage Promoters
+            Independent <span className="text-savage-green font-bold">BrandSavage</span> Promoters
           </p>
           
           <div className="flex flex-wrap justify-center gap-4 text-sm text-coconut-ivory/60 mb-6">
@@ -21,7 +21,7 @@ export default function Footer() {
               <strong className="text-coconut-ivory/70">Earnings Disclaimer:</strong> This is an independent promoter opportunity. Earnings are not guaranteed and depend on individual effort, skill, and market conditions. Past results do not guarantee future performance.
             </p>
             <p className="mb-2">
-              <strong className="text-coconut-ivory/70">Independence Notice:</strong> Vanuatu Brandsavage Team members are independent promoters and not employees of BrandSavage or any affiliated company. All business activities are conducted at your own risk and discretion.
+              <strong className="text-coconut-ivory/70">Independence Notice:</strong> Vanuatu Brandsavage Team members are independent promoters and not employees of <span className="text-savage-green font-bold">BrandSavage</span> or any affiliated company. All business activities are conducted at your own risk and discretion.
             </p>
             <p className="text-coconut-ivory/40">
               © {new Date().getFullYear()} Vanuatu Brandsavage Team. All rights reserved.

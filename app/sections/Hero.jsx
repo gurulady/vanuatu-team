@@ -81,8 +81,11 @@ export default function Hero() {
             <h1 className="heading-serif text-4xl md:text-6xl lg:text-7xl text-white leading-tight mb-6">
               Something Exciting is Happening in Vanuatu!
             </h1>
-            <p className="text-lg md:text-xl text-coconut-ivory/90 max-w-xl mb-8 leading-relaxed">
+            <p className="text-lg md:text-xl text-coconut-ivory/90 max-w-xl mb-4 leading-relaxed">
               Discover professional branding, creative possibilities and an opportunity to build something of your own.
+            </p>
+            <p className="text-lg md:text-xl text-coconut-ivory/90 max-w-xl mb-8 leading-relaxed">
+              Brought to you by <span className="text-savage-green font-bold">BrandSavage</span>.
             </p>
             <p className="text-2xl md:text-3xl font-bold text-savage-green mb-10 tracking-wide">
               BE SEEN. BE REMEMBERED. BE NAMBAWAN!
