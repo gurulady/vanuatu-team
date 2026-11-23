@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 
 const countryCodes = [
   { code: '+678', country: 'Vanuatu' },
@@ -198,73 +198,47 @@ const countryCodes = [
 ]
 
 export default function Registration() {
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    country: '',
-    countryCode: '+678',
-    whatsapp: '',
-    interest: 'both',
-    consent: false,
-    whatsappConsent: false,
-  })
   const [submitted, setSubmitted] = useState(false)
-  const [errors, setErrors] = useState({})
   const [submitting, setSubmitting] = useState(false)
   const [submitError, setSubmitError] = useState('')
-
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target
-    setFormData(prev => ({
-      ...prev,
-      [name]: type === 'checkbox' ? checked : value
-    }))
-    // Clear error when user types
-    if (errors[name]) {
-      setErrors(prev => ({ ...prev, [name]: '' }))
-    }
-  }
-
-  const validateForm = () => {
-    const newErrors = {}
-    
-    if (!formData.firstName.trim()) {
-      newErrors.firstName = 'First name is required'
-    }
-    
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email is required'
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'Please enter a valid email address'
-    }
-    
-    if (!formData.country.trim()) {
-      newErrors.country = 'Country is required'
-    }
-    
-    if (!formData.whatsapp.trim()) {
-      newErrors.whatsapp = 'WhatsApp number is required'
-    } else {
-      const digitsOnly = formData.whatsapp.replace(/\D/g, '')
-      if (digitsOnly.length < 5) {
-        newErrors.whatsapp = 'Please enter a valid phone number (minimum 5 digits)'
-      }
-    }
-    
-    if (!formData.consent) {
-      newErrors.consent = 'You must consent to be contacted'
-    }
-    
-    setErrors(newErrors)
-    return Object.keys(newErrors).length === 0
-  }
+  const formRef = useRef(null)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     setSubmitError('')
     
-    if (!validateForm()) {
+    const form = formRef.current
+    const formData = new FormData(form)
+    
+    const firstName = formData.get('firstName')?.trim()
+    const lastName = formData.get('lastName')?.trim()
+    const email = formData.get('email')?.trim()
+    const country = formData.get('country')?.trim()
+    const countryCode = formData.get('countryCode')
+    const whatsapp = formData.get('whatsapp')?.trim()
+    const interest = formData.get('interest')
+    const consent = formData.get('consent') === 'on'
+    const whatsappConsent = formData.get('whatsappConsent') === 'on'
+    
+    // Validation
+    if (!firstName) {
+      setSubmitError('First name is required')
+      return
+    }
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setSubmitError('Please enter a valid email address')
+      return
+    }
+    if (!country) {
+      setSubmitError('Country is required')
+      return
+    }
+    if (!whatsapp || whatsapp.replace(/\D/g, '').length < 5) {
+      setSubmitError('Please enter a valid WhatsApp number (minimum 5 digits)')
+      return
+    }
+    if (!consent) {
+      setSubmitError('You must consent to being contacted')
       return
     }
     
@@ -277,14 +251,14 @@ export default function Registration() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          firstName: formData.firstName,
-          lastName: formData.lastName,
-          email: formData.email,
-          country: formData.country,
-          whatsapp: `${formData.countryCode}${formData.whatsapp.replace(/\D/g, '')}`,
-          interest: formData.interest,
-          consent: formData.consent,
-          whatsappConsent: formData.whatsappConsent,
+          firstName,
+          lastName,
+          email,
+          country,
+          whatsapp: `${countryCode}${whatsapp.replace(/\D/g, '')}`,
+          interest,
+          consent,
+          whatsappConsent,
         }),
       })
       
@@ -332,7 +306,7 @@ export default function Registration() {
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
                 {/* First Name */}
                 <div>
                   <label htmlFor="firstName" className="block text-navy font-semibold mb-2">
@@ -343,12 +317,9 @@ export default function Registration() {
                     id="firstName"
                     name="firstName"
                     required
-                    value={formData.firstName}
-                    onChange={handleChange}
-                    className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-turquoise-tropical focus:border-transparent bg-cream/50 ${errors.firstName ? 'border-red-hibiscus' : 'border-purple-sunset/20'}`}
+                    className="w-full px-4 py-3 border border-purple-sunset/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-turquoise-tropical focus:border-transparent bg-cream/50"
                     placeholder="Your first name"
                   />
-                  {errors.firstName && <p className="text-red-hibiscus text-sm mt-1">{errors.firstName}</p>}
                 </div>
 
                 {/* Last Name */}
@@ -360,8 +331,6 @@ export default function Registration() {
                     type="text"
                     id="lastName"
                     name="lastName"
-                    value={formData.lastName}
-                    onChange={handleChange}
                     className="w-full px-4 py-3 border border-purple-sunset/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-turquoise-tropical focus:border-transparent bg-cream/50"
                     placeholder="Your last name"
                   />
@@ -377,12 +346,9 @@ export default function Registration() {
                     id="email"
                     name="email"
                     required
-                    value={formData.email}
-                    onChange={handleChange}
-                    className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-turquoise-tropical focus:border-transparent bg-cream/50 ${errors.email ? 'border-red-hibiscus' : 'border-purple-sunset/20'}`}
+                    className="w-full px-4 py-3 border border-purple-sunset/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-turquoise-tropical focus:border-transparent bg-cream/50"
                     placeholder="your@email.com"
                   />
-                  {errors.email && <p className="text-red-hibiscus text-sm mt-1">{errors.email}</p>}
                 </div>
 
                 {/* Country */}
@@ -395,15 +361,12 @@ export default function Registration() {
                     id="country"
                     name="country"
                     required
-                    value={formData.country}
-                    onChange={handleChange}
-                    className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-turquoise-tropical focus:border-transparent bg-cream/50 ${errors.country ? 'border-red-hibiscus' : 'border-purple-sunset/20'}`}
+                    className="w-full px-4 py-3 border border-purple-sunset/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-turquoise-tropical focus:border-transparent bg-cream/50"
                     placeholder="Your country"
                   />
-                  {errors.country && <p className="text-red-hibiscus text-sm mt-1">{errors.country}</p>}
                 </div>
 
-                {/* WhatsApp Number with Country Code */}
+                {/* WhatsApp Number */}
                 <div>
                   <label htmlFor="whatsapp" className="block text-navy font-semibold mb-2">
                     WhatsApp Number <span className="text-red-hibiscus">*</span>
@@ -411,14 +374,13 @@ export default function Registration() {
                   <div className="flex gap-2">
                     <select
                       name="countryCode"
-                      value={formData.countryCode}
-                      onChange={handleChange}
+                      defaultValue="+678"
                       className="px-3 py-3 border border-purple-sunset/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-turquoise-tropical focus:border-transparent bg-cream/50 text-sm"
                       style={{ minWidth: '120px' }}
                     >
-                      {countryCodes.map((cc) => (
-                        <option key={cc.code} value={cc.code}>
-                          {cc.code} {cc.country}
+                      {countryCodes.map(({ code, country }) => (
+                        <option key={code} value={code}>
+                          {code} {country}
                         </option>
                       ))}
                     </select>
@@ -427,16 +389,10 @@ export default function Registration() {
                       id="whatsapp"
                       name="whatsapp"
                       required
-                      value={formData.whatsapp}
-                      onChange={handleChange}
-                      className={`flex-1 px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-turquoise-tropical focus:border-transparent bg-cream/50 ${errors.whatsapp ? 'border-red-hibiscus' : 'border-purple-sunset/20'}`}
+                      className="flex-1 px-4 py-3 border border-purple-sunset/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-turquoise-tropical focus:border-transparent bg-cream/50"
                       placeholder="Phone number"
                     />
                   </div>
-                  {errors.whatsapp && <p className="text-red-hibiscus text-sm mt-1">{errors.whatsapp}</p>}
-                  <p className="text-xs text-navy/50 mt-1">
-                    Full number: {formData.countryCode}{formData.whatsapp.replace(/\D/g, '') || '...'}
-                  </p>
                 </div>
 
                 {/* Interest */}
@@ -450,8 +406,6 @@ export default function Registration() {
                         type="radio"
                         name="interest"
                         value="branding"
-                        checked={formData.interest === 'branding'}
-                        onChange={handleChange}
                         className="w-5 h-5 text-turquoise-deep"
                       />
                       <span className="text-navy">Branding Services</span>
@@ -461,8 +415,6 @@ export default function Registration() {
                         type="radio"
                         name="interest"
                         value="business"
-                        checked={formData.interest === 'business'}
-                        onChange={handleChange}
                         className="w-5 h-5 text-turquoise-deep"
                       />
                       <span className="text-navy">Business Opportunity</span>
@@ -472,8 +424,7 @@ export default function Registration() {
                         type="radio"
                         name="interest"
                         value="both"
-                        checked={formData.interest === 'both'}
-                        onChange={handleChange}
+                        defaultChecked
                         className="w-5 h-5 text-turquoise-deep"
                       />
                       <span className="text-navy">Both</span>
@@ -488,15 +439,12 @@ export default function Registration() {
                       type="checkbox"
                       name="consent"
                       required
-                      checked={formData.consent}
-                      onChange={handleChange}
-                      className={`w-5 h-5 mt-0.5 rounded ${errors.consent ? 'border-red-hibiscus' : 'text-turquoise-deep'}`}
+                      className="w-5 h-5 mt-0.5 rounded text-turquoise-deep"
                     />
                     <span className="text-sm text-navy/80">
                       I consent to being contacted about this opportunity. I understand my information will be handled in accordance with the privacy policy.
                     </span>
                   </label>
-                  {errors.consent && <p className="text-red-hibiscus text-sm mt-1">{errors.consent}</p>}
                 </div>
 
                 {/* WhatsApp Consent - Optional, Unchecked */}
@@ -505,8 +453,6 @@ export default function Registration() {
                     <input
                       type="checkbox"
                       name="whatsappConsent"
-                      checked={formData.whatsappConsent}
-                      onChange={handleChange}
                       className="w-5 h-5 mt-0.5 text-turquoise-deep rounded"
                     />
                     <span className="text-sm text-navy/80">
