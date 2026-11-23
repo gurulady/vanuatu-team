@@ -279,6 +279,12 @@ export default function Registration() {
 
   return (
     <section id="register" className="bg-purple-sunset/5 section-desktop">
+      <style>{`
+        #register input, #register select {
+          color: #1a2744 !important;
+          -webkit-text-fill-color: #1a2744 !important;
+        }
+      `}</style>
       <div className="container-content">
         <div className="max-w-2xl mx-auto">
           <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-purple-sunset/10">
