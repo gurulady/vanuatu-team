@@ -317,7 +317,7 @@ export default function Registration() {
                     id="firstName"
                     name="firstName"
                     required
-                    className="w-full px-4 py-3 border border-purple-sunset/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-turquoise-tropical focus:border-transparent bg-cream/50"
+                    className="w-full px-4 py-3 border border-purple-sunset/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-turquoise-tropical focus:border-transparent bg-cream/50 text-navy"
                     placeholder="Your first name"
                   />
                 </div>
@@ -331,7 +331,7 @@ export default function Registration() {
                     type="text"
                     id="lastName"
                     name="lastName"
-                    className="w-full px-4 py-3 border border-purple-sunset/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-turquoise-tropical focus:border-transparent bg-cream/50"
+                    className="w-full px-4 py-3 border border-purple-sunset/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-turquoise-tropical focus:border-transparent bg-cream/50 text-navy"
                     placeholder="Your last name"
                   />
                 </div>
@@ -346,7 +346,7 @@ export default function Registration() {
                     id="email"
                     name="email"
                     required
-                    className="w-full px-4 py-3 border border-purple-sunset/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-turquoise-tropical focus:border-transparent bg-cream/50"
+                    className="w-full px-4 py-3 border border-purple-sunset/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-turquoise-tropical focus:border-transparent bg-cream/50 text-navy"
                     placeholder="your@email.com"
                   />
                 </div>
@@ -361,7 +361,7 @@ export default function Registration() {
                     id="country"
                     name="country"
                     required
-                    className="w-full px-4 py-3 border border-purple-sunset/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-turquoise-tropical focus:border-transparent bg-cream/50"
+                    className="w-full px-4 py-3 border border-purple-sunset/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-turquoise-tropical focus:border-transparent bg-cream/50 text-navy"
                     placeholder="Your country"
                   />
                 </div>
@@ -389,7 +389,7 @@ export default function Registration() {
                       id="whatsapp"
                       name="whatsapp"
                       required
-                      className="flex-1 px-4 py-3 border border-purple-sunset/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-turquoise-tropical focus:border-transparent bg-cream/50"
+                      className="flex-1 px-4 py-3 border border-purple-sunset/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-turquoise-tropical focus:border-transparent bg-cream/50 text-navy"
                       placeholder="Phone number"
                     />
                   </div>
