@@ -17,7 +17,7 @@ export default function Footer() {
           {/* Social Media Icons */}
           <div className="flex justify-center items-center gap-6 mb-8">
             <a
-              href="https://facebook.com/vanuautbrandsavageteam"
+              href="https://www.facebook.com/vanuautubrandsavageteam"
               target="_blank"
               rel="noopener noreferrer"
               className="text-cream/60 hover:text-gold transition-colors"
