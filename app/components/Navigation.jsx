@@ -13,12 +13,12 @@ export default function Navigation() {
   ]
 
   return (
-    <header className="bg-ivory sticky top-0 z-50 shadow-sm">
+    <header className="bg-coconut-ivory/95 backdrop-blur-sm sticky top-0 z-50 shadow-sm">
       <div className="container-content">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <a href="#" className="heading-serif text-xl md:text-2xl text-ocean-navy tracking-wide">
-            VANUATU TEAM
+          <a href="#" className="heading-serif text-xl md:text-2xl text-jungle-green tracking-wide">
+            VANUATU BRANDSAVAGE TEAM
           </a>
 
           {/* Desktop Nav */}
@@ -27,21 +27,21 @@ export default function Navigation() {
               <a
                 key={link.label}
                 href={link.href}
-                className="text-ocean-navy font-medium hover:text-tropical-teal transition-colors"
+                className="text-jungle-green font-medium hover:text-lagoon-blue transition-colors"
               >
                 {link.label}
               </a>
             ))}
-            {/* Team Emblem - Small circular stamp */}
+            {/* Team Emblem - 70-80px circular stamp */}
             <div 
-              className="rounded-full border-2 border-gold shadow-lg overflow-hidden flex-shrink-0"
-              style={{ width: '90px', height: '90px' }}
+              className="rounded-full border-2 border-island-gold shadow-lg overflow-hidden flex-shrink-0"
+              style={{ width: '75px', height: '75px' }}
             >
               <img
                 src="/images/team-emblem.jpg"
                 alt="Vanuatu Team"
-                width={90}
-                height={90}
+                width={75}
+                height={75}
                 className="w-full h-full object-cover"
                 style={{ objectFit: 'cover' }}
               />
@@ -51,21 +51,21 @@ export default function Navigation() {
           {/* Mobile: Emblem + Hamburger */}
           <div className="flex items-center gap-3 md:hidden">
             <div 
-              className="rounded-full border-2 border-gold shadow-md overflow-hidden flex-shrink-0"
-              style={{ width: '64px', height: '64px' }}
+              className="rounded-full border-2 border-island-gold shadow-md overflow-hidden flex-shrink-0"
+              style={{ width: '50px', height: '50px' }}
             >
               <img
                 src="/images/team-emblem.jpg"
                 alt="Vanuatu Team"
-                width={64}
-                height={64}
+                width={50}
+                height={50}
                 className="w-full h-full object-cover"
                 style={{ objectFit: 'cover' }}
               />
             </div>
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="text-ocean-navy p-2"
+              className="text-jungle-green p-2"
               aria-label="Toggle menu"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -81,13 +81,13 @@ export default function Navigation() {
 
         {/* Mobile Menu */}
         {mobileOpen && (
-          <div className="md:hidden pb-4 border-t border-gray-200">
+          <div className="md:hidden pb-4 border-t border-tropical-leaf/20">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="block py-3 text-ocean-navy font-medium hover:text-tropical-teal transition-colors"
+                className="block py-3 text-jungle-green font-medium hover:text-lagoon-blue transition-colors"
               >
                 {link.label}
               </a>

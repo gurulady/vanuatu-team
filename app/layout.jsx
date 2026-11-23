@@ -1,6 +1,6 @@
 export const metadata = {
-  title: 'Vanuatu Team — Be Seen. Be Remembered. Be Nambawan!',
-  description: 'Discover a global opportunity with professional branding and relationship marketing. Join the Vanuatu Team.',
+  title: 'Vanuatu Brandsavage Team — Be Seen. Be Remembered. Be Nambawan!',
+  description: 'Discover a global opportunity with professional branding and relationship marketing in Vanuatu.',
 }
 
 export default function RootLayout({ children }) {
