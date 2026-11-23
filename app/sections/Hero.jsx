@@ -23,7 +23,7 @@ export default function Hero() {
             <p className="text-lg text-cream/90 max-w-xl mb-8 leading-relaxed">
               Brought to you by <span className="text-gold font-bold">Brand Savage</span>.
             </p>
-            <p className="text-xl md:text-2xl font-bold text-vanuatu-green mb-10 tracking-wide">
+            <p className="text-xl md:text-2xl font-bold text-gold-bright mb-10 tracking-wide">
               BE SEEN. BE REMEMBERED. BE NAMBAWAN!
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
