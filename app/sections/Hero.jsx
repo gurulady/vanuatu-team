@@ -21,7 +21,7 @@ export default function Hero() {
               Professional branding, creative possibilities and an opportunity to build something of your own.
             </p>
             <p className="text-lg text-cream/90 max-w-xl mb-8 leading-relaxed">
-              Brought to you by <span className="text-gold font-bold">BrandSavage</span>.
+              Brought to you by <span className="text-gold font-bold">Brand Savage</span>.
             </p>
             <p className="text-xl md:text-2xl font-bold text-vanuatu-green mb-10 tracking-wide">
               BE SEEN. BE REMEMBERED. BE NAMBAWAN!

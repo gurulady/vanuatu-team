@@ -18,7 +18,7 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <a href="#" className="heading-serif text-xl md:text-2xl text-navy tracking-wide">
-            VANUATU BRANDSAVAGE TEAM
+            VANUATU Brand Savage TEAM
           </a>
 
           {/* Desktop Nav */}

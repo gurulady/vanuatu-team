@@ -1,5 +1,5 @@
 export const metadata = {
-  title: 'Vanuatu Brandsavage Team — Be Seen. Be Remembered. Be Nambawan!',
+  title: 'Vanuatu Brand Savage Team — Be Seen. Be Remembered. Be Nambawan!',
   description: 'Discover a global opportunity with professional branding and relationship marketing in Vanuatu.',
 }
 
