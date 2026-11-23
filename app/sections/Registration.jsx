@@ -211,6 +211,8 @@ export default function Registration() {
   })
   const [submitted, setSubmitted] = useState(false)
   const [errors, setErrors] = useState({})
+  const [submitting, setSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState('')
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target
@@ -258,25 +260,47 @@ export default function Registration() {
     return Object.keys(newErrors).length === 0
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
+    setSubmitError('')
     
     if (!validateForm()) {
       return
     }
     
-    // Prepare data for GCC
-    const submissionData = {
-      ...formData,
-      fullWhatsAppNumber: `${formData.countryCode}${formData.whatsapp.replace(/\D/g, '')}`,
-      whatsAppConsent: formData.whatsappConsent,
-      // Preserve existing GCC tags
-      source: 'vanuatu-team-landing-page',
-      tag: 'vanuatu-registration',
-    }
+    setSubmitting(true)
     
-    console.log('Form data (demo only):', submissionData)
-    setSubmitted(true)
+    try {
+      const response = await fetch('/api/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          email: formData.email,
+          country: formData.country,
+          whatsapp: `${formData.countryCode}${formData.whatsapp.replace(/\D/g, '')}`,
+          interest: formData.interest,
+          consent: formData.consent,
+          whatsappConsent: formData.whatsappConsent,
+        }),
+      })
+      
+      const data = await response.json()
+      
+      if (data.success) {
+        setSubmitted(true)
+      } else {
+        setSubmitError(data.error || 'Something went wrong. Please try again.')
+      }
+    } catch (error) {
+      console.error('Submission error:', error)
+      setSubmitError('Network error. Please try again.')
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   return (
@@ -494,14 +518,15 @@ export default function Registration() {
                 {/* Submit */}
                 <button
                   type="submit"
-                  className="w-full btn-primary mt-4"
+                  disabled={submitting}
+                  className="w-full btn-primary mt-4 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  REGISTER FOR THE PRESENTATION
+                  {submitting ? 'REGISTERING...' : 'REGISTER FOR THE PRESENTATION'}
                 </button>
-
-                <p className="text-xs text-navy/60 text-center mt-4">
-                  This form is currently in preview mode. Live submissions will be enabled after approval.
-                </p>
+                
+                {submitError && (
+                  <p className="text-red-hibiscus text-sm text-center mt-2">{submitError}</p>
+                )}
               </form>
             )}
           </div>
