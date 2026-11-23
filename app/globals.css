@@ -15,6 +15,16 @@
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Playfair Display', Georgia, serif;
   }
+
+  /* Force form inputs to have dark visible text */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  select,
+  textarea {
+    color: #1a2744 !important;
+    -webkit-text-fill-color: #1a2744 !important;
+  }
 }
 
 @layer components {
