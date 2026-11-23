@@ -1,7 +1,16 @@
 export default function TwoWays() {
   return (
-    <section id="opportunity" className="bg-purple-sunset/5 section-desktop">
+    <section id="opportunity" className="bg-cream section-desktop">
       <div className="container-content">
+        <div className="text-center mb-12">
+          <h2 className="heading-serif text-3xl md:text-4xl text-navy mb-4">
+            TWO WAYS TO GET INVOLVED
+          </h2>
+          <p className="text-navy/70 text-lg max-w-2xl mx-auto">
+            From Vanuatu to Fiji, Australia and beyond — connecting people who believe in creativity and new opportunities.
+          </p>
+        </div>
+        
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {/* Card 1 */}
           <div className="card-modern">
@@ -10,11 +19,11 @@ export default function TwoWays() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
               </svg>
             </div>
-            <h3 className="heading-serif text-2xl md:text-3xl text-navy mb-4">
+            <h3 className="heading-serif text-2xl text-navy mb-4">
               PROFESSIONAL BRANDING
             </h3>
             <p className="text-navy/80 text-lg leading-relaxed">
-              Discover 100% human-created designs to help individuals, entrepreneurs and businesses stand out with confidence.
+              Human-created designs to help you stand out with confidence.
             </p>
           </div>
 
@@ -25,11 +34,11 @@ export default function TwoWays() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
               </svg>
             </div>
-            <h3 className="heading-serif text-2xl md:text-3xl text-navy mb-4">
-              THE BUSINESS OPPORTUNITY
+            <h3 className="heading-serif text-2xl text-navy mb-4">
+              BUSINESS OPPORTUNITY
             </h3>
             <p className="text-navy/80 text-lg leading-relaxed">
-              Explore the optional opportunity to become an independent promoter, introduce others to professional branding services and potentially earn commissions under the company's terms.
+              Become an independent promoter and build your own income.
             </p>
           </div>
         </div>

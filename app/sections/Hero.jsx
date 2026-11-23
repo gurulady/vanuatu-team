@@ -18,7 +18,7 @@ export default function Hero() {
               Something Exciting is Happening in Vanuatu!
             </h1>
             <p className="text-lg text-cream/90 max-w-xl mb-6 leading-relaxed">
-              Discover professional branding, creative possibilities and an opportunity to build something of your own.
+              Professional branding, creative possibilities and an opportunity to build something of your own.
             </p>
             <p className="text-lg text-cream/90 max-w-xl mb-8 leading-relaxed">
               Brought to you by <span className="text-gold font-bold">BrandSavage</span>.
@@ -27,11 +27,11 @@ export default function Hero() {
               BE SEEN. BE REMEMBERED. BE NAMBAWAN!
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href="#opportunity" className="btn-primary text-center">
-                DISCOVER THE OPPORTUNITY
-              </a>
-              <a href="#register" className="btn-secondary text-center">
+              <a href="#register" className="btn-primary text-center">
                 REGISTER FOR OUR PRESENTATION
+              </a>
+              <a href="#opportunity" className="btn-secondary text-center">
+                DISCOVER MORE
               </a>
             </div>
           </div>
@@ -49,7 +49,6 @@ export default function Hero() {
                 className="relative rounded-3xl shadow-2xl w-full h-auto object-contain"
                 style={{ aspectRatio: '1/1' }}
               />
-              {/* Decorative border */}
               <div className="absolute -inset-3 border-2 border-gold/30 rounded-3xl pointer-events-none" />
             </div>
           </div>
