@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600;700&display=swap');
-
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -11,6 +9,11 @@
   
   body {
     @apply font-sans text-ocean-navy bg-ivory;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', Georgia, serif;
   }
 }
 
@@ -19,11 +22,13 @@
     @apply px-8 py-4 bg-ruby-red text-white font-semibold rounded-[10px]
            hover:bg-red-800 transition-all duration-300
            transform hover:scale-105 shadow-lg;
+    font-family: 'Inter', system-ui, sans-serif;
   }
   
   .btn-secondary {
     @apply px-8 py-4 border-2 border-ruby-red text-ruby-red font-semibold rounded-[10px]
            hover:bg-ruby-red hover:text-white transition-all duration-300;
+    font-family: 'Inter', system-ui, sans-serif;
   }
   
   .section-desktop {
@@ -35,10 +40,11 @@
   }
   
   .container-content {
-    @apply max-w-content mx-auto px-4 sm:px-6 lg:px-8;
+    @apply max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8;
   }
   
   .heading-serif {
-    @apply font-serif font-bold;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
   }
 }

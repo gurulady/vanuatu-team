@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import Image from 'next/image'
 
 export default function Navigation() {
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -33,27 +32,35 @@ export default function Navigation() {
                 {link.label}
               </a>
             ))}
-            {/* Team Emblem */}
-            <div className="w-[90px] h-[90px] rounded-full border-2 border-gold shadow-lg overflow-hidden flex-shrink-0">
-              <Image
+            {/* Team Emblem - Small circular stamp */}
+            <div 
+              className="rounded-full border-2 border-gold shadow-lg overflow-hidden flex-shrink-0"
+              style={{ width: '90px', height: '90px' }}
+            >
+              <img
                 src="/images/team-emblem.jpg"
                 alt="Vanuatu Team"
                 width={90}
                 height={90}
                 className="w-full h-full object-cover"
+                style={{ objectFit: 'cover' }}
               />
             </div>
           </nav>
 
           {/* Mobile: Emblem + Hamburger */}
           <div className="flex items-center gap-3 md:hidden">
-            <div className="w-16 h-16 rounded-full border-2 border-gold shadow-md overflow-hidden flex-shrink-0">
-              <Image
+            <div 
+              className="rounded-full border-2 border-gold shadow-md overflow-hidden flex-shrink-0"
+              style={{ width: '64px', height: '64px' }}
+            >
+              <img
                 src="/images/team-emblem.jpg"
                 alt="Vanuatu Team"
                 width={64}
                 height={64}
                 className="w-full h-full object-cover"
+                style={{ objectFit: 'cover' }}
               />
             </div>
             <button

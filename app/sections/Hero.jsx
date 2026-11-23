@@ -1,20 +1,16 @@
-'use client'
-
-import Image from 'next/image'
-
 export default function Hero() {
   return (
     <section id="about">
-      {/* Facebook Cover Banner */}
-      <div className="w-full">
-        <Image
-          src="/images/hero-banner.jpg"
-          alt="Vanuatu Team Global Opportunity"
-          width={1200}
-          height={400}
-          className="w-full h-auto object-cover"
-          priority
-        />
+      {/* Facebook Cover Banner - wide hero with preserved proportions */}
+      <div className="w-full bg-ocean-navy">
+        <div className="max-w-[1200px] mx-auto">
+          <img
+            src="/images/hero-banner.jpg"
+            alt="Vanuatu Team Global Opportunity"
+            className="w-full h-auto object-contain"
+            style={{ maxHeight: '400px', objectFit: 'contain' }}
+          />
+        </div>
       </div>
 
       {/* Hero Content */}
