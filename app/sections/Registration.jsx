@@ -2,17 +2,215 @@
 
 import { useState } from 'react'
 
+const countryCodes = [
+  { code: '+678', country: 'Vanuatu' },
+  { code: '+61', country: 'Australia' },
+  { code: '+679', country: 'Fiji' },
+  { code: '+687', country: 'New Caledonia' },
+  { code: '+63', country: 'Philippines' },
+  { code: '+64', country: 'New Zealand' },
+  { code: '+1', country: 'USA/Canada' },
+  { code: '+44', country: 'UK' },
+  { code: '+27', country: 'South Africa' },
+  { code: '+91', country: 'India' },
+  { code: '+86', country: 'China' },
+  { code: '+81', country: 'Japan' },
+  { code: '+82', country: 'South Korea' },
+  { code: '+65', country: 'Singapore' },
+  { code: '+66', country: 'Thailand' },
+  { code: '+62', country: 'Indonesia' },
+  { code: '+60', country: 'Malaysia' },
+  { code: '+84', country: 'Vietnam' },
+  { code: '+852', country: 'Hong Kong' },
+  { code: '+886', country: 'Taiwan' },
+  { code: '+673', country: 'Brunei' },
+  { code: '+856', country: 'Laos' },
+  { code: '+95', country: 'Myanmar' },
+  { code: '+855', country: 'Cambodia' },
+  { code: '+880', country: 'Bangladesh' },
+  { code: '+94', country: 'Sri Lanka' },
+  { code: '+960', country: 'Maldives' },
+  { code: '+977', country: 'Nepal' },
+  { code: '+92', country: 'Pakistan' },
+  { code: '+968', country: 'Oman' },
+  { code: '+971', country: 'UAE' },
+  { code: '+974', country: 'Qatar' },
+  { code: '+965', country: 'Kuwait' },
+  { code: '+973', country: 'Bahrain' },
+  { code: '+966', country: 'Saudi Arabia' },
+  { code: '+964', country: 'Iraq' },
+  { code: '+962', country: 'Jordan' },
+  { code: '+961', country: 'Lebanon' },
+  { code: '+963', country: 'Syria' },
+  { code: '+970', country: 'Palestine' },
+  { code: '+972', country: 'Israel' },
+  { code: '+90', country: 'Turkey' },
+  { code: '+30', country: 'Greece' },
+  { code: '+39', country: 'Italy' },
+  { code: '+34', country: 'Spain' },
+  { code: '+33', country: 'France' },
+  { code: '+49', country: 'Germany' },
+  { code: '+31', country: 'Netherlands' },
+  { code: '+32', country: 'Belgium' },
+  { code: '+41', country: 'Switzerland' },
+  { code: '+43', country: 'Austria' },
+  { code: '+45', country: 'Denmark' },
+  { code: '+46', country: 'Sweden' },
+  { code: '+47', country: 'Norway' },
+  { code: '+358', country: 'Finland' },
+  { code: '+48', country: 'Poland' },
+  { code: '+420', country: 'Czech Republic' },
+  { code: '+421', country: 'Slovakia' },
+  { code: '+36', country: 'Hungary' },
+  { code: '+40', country: 'Romania' },
+  { code: '+359', country: 'Bulgaria' },
+  { code: '+38', country: 'Ukraine' },
+  { code: '+7', country: 'Russia' },
+  { code: '+375', country: 'Belarus' },
+  { code: '+370', country: 'Lithuania' },
+  { code: '+371', country: 'Latvia' },
+  { code: '+372', country: 'Estonia' },
+  { code: '+354', country: 'Iceland' },
+  { code: '+353', country: 'Ireland' },
+  { code: '+44', country: 'UK' },
+  { code: '+352', country: 'Luxembourg' },
+  { code: '+351', country: 'Portugal' },
+  { code: '+386', country: 'Slovenia' },
+  { code: '+385', country: 'Croatia' },
+  { code: '+387', country: 'Bosnia' },
+  { code: '+389', country: 'Macedonia' },
+  { code: '+381', country: 'Serbia' },
+  { code: '+382', country: 'Montenegro' },
+  { code: '+355', country: 'Albania' },
+  { code: '+30', country: 'Greece' },
+  { code: '+357', country: 'Cyprus' },
+  { code: '+356', country: 'Malta' },
+  { code: '+20', country: 'Egypt' },
+  { code: '+212', country: 'Morocco' },
+  { code: '+213', country: 'Algeria' },
+  { code: '+216', country: 'Tunisia' },
+  { code: '+218', country: 'Libya' },
+  { code: '+233', country: 'Ghana' },
+  { code: '+234', country: 'Nigeria' },
+  { code: '+254', country: 'Kenya' },
+  { code: '+255', country: 'Tanzania' },
+  { code: '+256', country: 'Uganda' },
+  { code: '+250', country: 'Rwanda' },
+  { code: '+257', country: 'Burundi' },
+  { code: '+258', country: 'Mozambique' },
+  { code: '+260', country: 'Zambia' },
+  { code: '+263', country: 'Zimbabwe' },
+  { code: '+267', country: 'Botswana' },
+  { code: '+268', country: 'Eswatini' },
+  { code: '+269', country: 'Comoros' },
+  { code: '+27', country: 'South Africa' },
+  { code: '+291', country: 'Eritrea' },
+  { code: '+252', country: 'Somalia' },
+  { code: '+253', country: 'Djibouti' },
+  { code: '+251', country: 'Ethiopia' },
+  { code: '+249', country: 'Sudan' },
+  { code: '+211', country: 'South Sudan' },
+  { code: '+240', country: 'Equatorial Guinea' },
+  { code: '+241', country: 'Gabon' },
+  { code: '+242', country: 'Congo' },
+  { code: '+243', country: 'DR Congo' },
+  { code: '+244', country: 'Angola' },
+  { code: '+245', country: 'Guinea-Bissau' },
+  { code: '+246', country: 'Diego Garcia' },
+  { code: '+247', country: 'Ascension' },
+  { code: '+248', country: 'Seychelles' },
+  { code: '+290', country: 'St Helena' },
+  { code: '+297', country: 'Aruba' },
+  { code: '+298', country: 'Faroe Islands' },
+  { code: '+299', country: 'Greenland' },
+  { code: '+350', country: 'Gibraltar' },
+  { code: '+500', country: 'Falkland Islands' },
+  { code: '+501', country: 'Belize' },
+  { code: '+502', country: 'Guatemala' },
+  { code: '+503', country: 'El Salvador' },
+  { code: '+504', country: 'Honduras' },
+  { code: '+505', country: 'Nicaragua' },
+  { code: '+506', country: 'Costa Rica' },
+  { code: '+507', country: 'Panama' },
+  { code: '+508', country: 'St Pierre' },
+  { code: '+509', country: 'Haiti' },
+  { code: '+590', country: 'Guadeloupe' },
+  { code: '+591', country: 'Bolivia' },
+  { code: '+592', country: 'Guyana' },
+  { code: '+593', country: 'Ecuador' },
+  { code: '+594', country: 'French Guiana' },
+  { code: '+595', country: 'Paraguay' },
+  { code: '+596', country: 'Martinique' },
+  { code: '+597', country: 'Suriname' },
+  { code: '+598', country: 'Uruguay' },
+  { code: '+599', country: 'Curacao' },
+  { code: '+670', country: 'Timor-Leste' },
+  { code: '+672', country: 'Norfolk Island' },
+  { code: '+673', country: 'Brunei' },
+  { code: '+674', country: 'Nauru' },
+  { code: '+675', country: 'Papua New Guinea' },
+  { code: '+676', country: 'Tonga' },
+  { code: '+677', country: 'Solomon Islands' },
+  { code: '+678', country: 'Vanuatu' },
+  { code: '+680', country: 'Palau' },
+  { code: '+681', country: 'Wallis & Futuna' },
+  { code: '+682', country: 'Cook Islands' },
+  { code: '+683', country: 'Niue' },
+  { code: '+684', country: 'American Samoa' },
+  { code: '+685', country: 'Samoa' },
+  { code: '+686', country: 'Kiribati' },
+  { code: '+687', country: 'New Caledonia' },
+  { code: '+688', country: 'Tuvalu' },
+  { code: '+689', country: 'French Polynesia' },
+  { code: '+690', country: 'Tokelau' },
+  { code: '+691', country: 'Micronesia' },
+  { code: '+692', country: 'Marshall Islands' },
+  { code: '+850', country: 'North Korea' },
+  { code: '+852', country: 'Hong Kong' },
+  { code: '+853', country: 'Macau' },
+  { code: '+855', country: 'Cambodia' },
+  { code: '+856', country: 'Laos' },
+  { code: '+880', country: 'Bangladesh' },
+  { code: '+886', country: 'Taiwan' },
+  { code: '+960', country: 'Maldives' },
+  { code: '+961', country: 'Lebanon' },
+  { code: '+962', country: 'Jordan' },
+  { code: '+963', country: 'Syria' },
+  { code: '+964', country: 'Iraq' },
+  { code: '+965', country: 'Kuwait' },
+  { code: '+966', country: 'Saudi Arabia' },
+  { code: '+967', country: 'Yemen' },
+  { code: '+968', country: 'Oman' },
+  { code: '+970', country: 'Palestine' },
+  { code: '+971', country: 'UAE' },
+  { code: '+972', country: 'Israel' },
+  { code: '+973', country: 'Bahrain' },
+  { code: '+974', country: 'Qatar' },
+  { code: '+975', country: 'Bhutan' },
+  { code: '+976', country: 'Mongolia' },
+  { code: '+977', country: 'Nepal' },
+  { code: '+992', country: 'Tajikistan' },
+  { code: '+993', country: 'Turkmenistan' },
+  { code: '+994', country: 'Azerbaijan' },
+  { code: '+995', country: 'Georgia' },
+  { code: '+996', country: 'Kyrgyzstan' },
+  { code: '+998', country: 'Uzbekistan' },
+]
+
 export default function Registration() {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
     email: '',
     country: '',
+    countryCode: '+678',
     whatsapp: '',
     interest: 'both',
     consent: false,
+    whatsappConsent: false,
   })
   const [submitted, setSubmitted] = useState(false)
+  const [errors, setErrors] = useState({})
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target
@@ -20,11 +218,64 @@ export default function Registration() {
       ...prev,
       [name]: type === 'checkbox' ? checked : value
     }))
+    // Clear error when user types
+    if (errors[name]) {
+      setErrors(prev => ({ ...prev, [name]: '' }))
+    }
+  }
+
+  const validateForm = () => {
+    const newErrors = {}
+    
+    if (!formData.firstName.trim()) {
+      newErrors.firstName = 'First name is required'
+    }
+    
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required'
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = 'Please enter a valid email address'
+    }
+    
+    if (!formData.country.trim()) {
+      newErrors.country = 'Country is required'
+    }
+    
+    if (!formData.whatsapp.trim()) {
+      newErrors.whatsapp = 'WhatsApp number is required'
+    } else {
+      const digitsOnly = formData.whatsapp.replace(/\D/g, '')
+      if (digitsOnly.length < 5) {
+        newErrors.whatsapp = 'Please enter a valid phone number (minimum 5 digits)'
+      }
+    }
+    
+    if (!formData.consent) {
+      newErrors.consent = 'You must consent to be contacted'
+    }
+    
+    setErrors(newErrors)
+    return Object.keys(newErrors).length === 0
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('Form data (demo only):', formData)
+    
+    if (!validateForm()) {
+      return
+    }
+    
+    // Prepare data for GCC
+    const submissionData = {
+      ...formData,
+      fullWhatsAppNumber: `${formData.countryCode}${formData.whatsapp.replace(/\D/g, '')}`,
+      whatsAppConsent: formData.whatsappConsent,
+      // Preserve existing GCC tags
+      source: 'vanuatu-team-landing-page',
+      tag: 'vanuatu-registration',
+    }
+    
+    console.log('Form data (demo only):', submissionData)
     setSubmitted(true)
   }
 
@@ -70,9 +321,10 @@ export default function Registration() {
                     required
                     value={formData.firstName}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-purple-sunset/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-turquoise-tropical focus:border-transparent bg-cream/50"
+                    className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-turquoise-tropical focus:border-transparent bg-cream/50 ${errors.firstName ? 'border-red-hibiscus' : 'border-purple-sunset/20'}`}
                     placeholder="Your first name"
                   />
+                  {errors.firstName && <p className="text-red-hibiscus text-sm mt-1">{errors.firstName}</p>}
                 </div>
 
                 {/* Last Name */}
@@ -103,9 +355,10 @@ export default function Registration() {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-purple-sunset/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-turquoise-tropical focus:border-transparent bg-cream/50"
+                    className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-turquoise-tropical focus:border-transparent bg-cream/50 ${errors.email ? 'border-red-hibiscus' : 'border-purple-sunset/20'}`}
                     placeholder="your@email.com"
                   />
+                  {errors.email && <p className="text-red-hibiscus text-sm mt-1">{errors.email}</p>}
                 </div>
 
                 {/* Country */}
@@ -120,25 +373,46 @@ export default function Registration() {
                     required
                     value={formData.country}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-purple-sunset/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-turquoise-tropical focus:border-transparent bg-cream/50"
+                    className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-turquoise-tropical focus:border-transparent bg-cream/50 ${errors.country ? 'border-red-hibiscus' : 'border-purple-sunset/20'}`}
                     placeholder="Your country"
                   />
+                  {errors.country && <p className="text-red-hibiscus text-sm mt-1">{errors.country}</p>}
                 </div>
 
-                {/* WhatsApp */}
+                {/* WhatsApp Number with Country Code */}
                 <div>
                   <label htmlFor="whatsapp" className="block text-navy font-semibold mb-2">
-                    WhatsApp
+                    WhatsApp Number <span className="text-red-hibiscus">*</span>
                   </label>
-                  <input
-                    type="tel"
-                    id="whatsapp"
-                    name="whatsapp"
-                    value={formData.whatsapp}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-purple-sunset/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-turquoise-tropical focus:border-transparent bg-cream/50"
-                    placeholder="+678 ..."
-                  />
+                  <div className="flex gap-2">
+                    <select
+                      name="countryCode"
+                      value={formData.countryCode}
+                      onChange={handleChange}
+                      className="px-3 py-3 border border-purple-sunset/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-turquoise-tropical focus:border-transparent bg-cream/50 text-sm"
+                      style={{ minWidth: '120px' }}
+                    >
+                      {countryCodes.map((cc) => (
+                        <option key={cc.code} value={cc.code}>
+                          {cc.code} {cc.country}
+                        </option>
+                      ))}
+                    </select>
+                    <input
+                      type="tel"
+                      id="whatsapp"
+                      name="whatsapp"
+                      required
+                      value={formData.whatsapp}
+                      onChange={handleChange}
+                      className={`flex-1 px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-turquoise-tropical focus:border-transparent bg-cream/50 ${errors.whatsapp ? 'border-red-hibiscus' : 'border-purple-sunset/20'}`}
+                      placeholder="Phone number"
+                    />
+                  </div>
+                  {errors.whatsapp && <p className="text-red-hibiscus text-sm mt-1">{errors.whatsapp}</p>}
+                  <p className="text-xs text-navy/50 mt-1">
+                    Full number: {formData.countryCode}{formData.whatsapp.replace(/\D/g, '') || '...'}
+                  </p>
                 </div>
 
                 {/* Interest */}
@@ -183,7 +457,7 @@ export default function Registration() {
                   </div>
                 </div>
 
-                {/* Consent */}
+                {/* Main Consent */}
                 <div className="pt-4 border-t border-purple-sunset/20">
                   <label className="flex items-start gap-3 cursor-pointer">
                     <input
@@ -192,10 +466,27 @@ export default function Registration() {
                       required
                       checked={formData.consent}
                       onChange={handleChange}
-                      className="w-5 h-5 mt-0.5 text-turquoise-deep rounded"
+                      className={`w-5 h-5 mt-0.5 rounded ${errors.consent ? 'border-red-hibiscus' : 'text-turquoise-deep'}`}
                     />
                     <span className="text-sm text-navy/80">
                       I consent to being contacted about this opportunity. I understand my information will be handled in accordance with the privacy policy.
+                    </span>
+                  </label>
+                  {errors.consent && <p className="text-red-hibiscus text-sm mt-1">{errors.consent}</p>}
+                </div>
+
+                {/* WhatsApp Consent - Optional, Unchecked */}
+                <div>
+                  <label className="flex items-start gap-3 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      name="whatsappConsent"
+                      checked={formData.whatsappConsent}
+                      onChange={handleChange}
+                      className="w-5 h-5 mt-0.5 text-turquoise-deep rounded"
+                    />
+                    <span className="text-sm text-navy/80">
+                      I agree to be contacted on WhatsApp about my enquiry and the online presentation.
                     </span>
                   </label>
                 </div>

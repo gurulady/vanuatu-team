@@ -32,6 +32,13 @@ module.exports = {
         cream: {
           DEFAULT: '#faf8f3',
         },
+        vanuatu: {
+          green: '#009543',
+          bright: '#19B85A',
+        },
+        black: {
+          volcanic: '#111814',
+        },
       },
       fontFamily: {
         serif: ['Playfair Display', 'Georgia', 'serif'],

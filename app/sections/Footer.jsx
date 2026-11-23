@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="bg-navy py-10 px-4 sm:px-6 lg:px-8">
+    <footer className="bg-black-volcanic py-10 px-4 sm:px-6 lg:px-8 border-t border-cream/10">
       <div className="container-content">
         <div className="text-center">
           <p className="text-gold font-semibold mb-2 text-lg">
@@ -8,6 +8,10 @@ export default function Footer() {
           </p>
           <p className="text-cream/70 text-sm mb-4">
             Independent <span className="text-gold font-bold">BrandSavage</span> Promoters
+          </p>
+          
+          <p className="text-xl md:text-2xl font-bold text-vanuatu-bright mb-6 tracking-wide">
+            BE SEEN. BE REMEMBERED. BE NAMBAWAN!
           </p>
           
           <div className="flex flex-wrap justify-center gap-4 text-sm text-cream/60 mb-6">

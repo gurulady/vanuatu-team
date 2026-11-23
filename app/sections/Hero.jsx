@@ -1,8 +1,8 @@
 export default function Hero() {
   return (
-    <section id="about" className="bg-navy-deep relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 opacity-10">
+    <section id="about" className="bg-black-volcanic relative overflow-hidden">
+      {/* Subtle background decoration */}
+      <div className="absolute inset-0 opacity-5">
         <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-purple-sunset blur-3xl" />
         <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-turquoise-tropical blur-3xl" />
       </div>
@@ -23,7 +23,7 @@ export default function Hero() {
             <p className="text-lg text-cream/90 max-w-xl mb-8 leading-relaxed">
               Brought to you by <span className="text-gold font-bold">BrandSavage</span>.
             </p>
-            <p className="text-xl md:text-2xl font-bold text-turquoise-tropical mb-10 tracking-wide">
+            <p className="text-xl md:text-2xl font-bold text-vanuatu-bright mb-10 tracking-wide">
               BE SEEN. BE REMEMBERED. BE NAMBAWAN!
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
