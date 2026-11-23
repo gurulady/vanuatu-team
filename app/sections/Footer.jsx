@@ -10,7 +10,7 @@ export default function Footer() {
             Independent <span className="text-gold font-bold">BrandSavage</span> Promoters
           </p>
           
-          <p className="text-xl md:text-2xl font-bold text-vanuatu-bright mb-6 tracking-wide">
+          <p className="text-xl md:text-2xl font-bold text-vanuatu-green mb-6 tracking-wide">
             BE SEEN. BE REMEMBERED. BE NAMBAWAN!
           </p>
           

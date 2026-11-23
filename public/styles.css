@@ -563,7 +563,7 @@ body {
   background-color: rgb(250 248 243 / var(--tw-bg-opacity, 1));
   font-family: Inter, system-ui, sans-serif;
   --tw-text-opacity: 1;
-  color: rgb(26 39 68 / var(--tw-text-opacity, 1));
+  color: rgb(250 248 243 / var(--tw-text-opacity, 1));
   font-family: 'Inter', system-ui, sans-serif;
 }
 
@@ -575,7 +575,7 @@ h1, h2, h3, h4, h5, h6 {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   border-radius: 10px;
   --tw-bg-opacity: 1;
-  background-color: rgb(194 30 86 / var(--tw-bg-opacity, 1));
+  background-color: rgb(210 16 52 / var(--tw-bg-opacity, 1));
   padding-left: 2rem;
   padding-right: 2rem;
   padding-top: 1rem;
@@ -596,7 +596,7 @@ h1, h2, h3, h4, h5, h6 {
   --tw-scale-y: 1.05;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   --tw-bg-opacity: 1;
-  background-color: rgb(157 23 77 / var(--tw-bg-opacity, 1));
+  background-color: rgb(179 13 42 / var(--tw-bg-opacity, 1));
 }
 
 .btn-primary {
@@ -607,14 +607,14 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 10px;
   border-width: 2px;
   --tw-border-opacity: 1;
-  border-color: rgb(212 168 67 / var(--tw-border-opacity, 1));
+  border-color: rgb(198 161 91 / var(--tw-border-opacity, 1));
   padding-left: 2rem;
   padding-right: 2rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
   font-weight: 700;
   --tw-text-opacity: 1;
-  color: rgb(212 168 67 / var(--tw-text-opacity, 1));
+  color: rgb(198 161 91 / var(--tw-text-opacity, 1));
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 300ms;
@@ -622,9 +622,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-secondary:hover {
   --tw-bg-opacity: 1;
-  background-color: rgb(212 168 67 / var(--tw-bg-opacity, 1));
+  background-color: rgb(198 161 91 / var(--tw-bg-opacity, 1));
   --tw-text-opacity: 1;
-  color: rgb(15 26 46 / var(--tw-text-opacity, 1));
+  color: rgb(17 24 20 / var(--tw-text-opacity, 1));
 }
 
 .btn-secondary {
@@ -1068,11 +1068,11 @@ h1, h2, h3, h4, h5, h6 {
 
 .border-gold {
   --tw-border-opacity: 1;
-  border-color: rgb(212 168 67 / var(--tw-border-opacity, 1));
+  border-color: rgb(198 161 91 / var(--tw-border-opacity, 1));
 }
 
 .border-gold\/30 {
-  border-color: rgb(212 168 67 / 0.3);
+  border-color: rgb(198 161 91 / 0.3);
 }
 
 .border-purple-sunset\/10 {
@@ -1085,7 +1085,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .border-red-hibiscus {
   --tw-border-opacity: 1;
-  border-color: rgb(194 30 86 / var(--tw-border-opacity, 1));
+  border-color: rgb(210 16 52 / var(--tw-border-opacity, 1));
 }
 
 .bg-black-volcanic {
@@ -1107,7 +1107,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .bg-gold\/20 {
-  background-color: rgb(212 168 67 / 0.2);
+  background-color: rgb(198 161 91 / 0.2);
+}
+
+.bg-jungle-green {
+  --tw-bg-opacity: 1;
+  background-color: rgb(18 61 40 / var(--tw-bg-opacity, 1));
 }
 
 .bg-navy {
@@ -1168,8 +1173,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .via-gold {
-  --tw-gradient-to: rgb(212 168 67 / 0)  var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), #d4a843 var(--tw-gradient-via-position), var(--tw-gradient-to);
+  --tw-gradient-to: rgb(198 161 91 / 0)  var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), #C6A15B var(--tw-gradient-via-position), var(--tw-gradient-to);
 }
 
 .to-turquoise-tropical {
@@ -1346,7 +1351,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .text-gold {
   --tw-text-opacity: 1;
-  color: rgb(212 168 67 / var(--tw-text-opacity, 1));
+  color: rgb(198 161 91 / var(--tw-text-opacity, 1));
 }
 
 .text-navy {
@@ -1372,7 +1377,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .text-red-hibiscus {
   --tw-text-opacity: 1;
-  color: rgb(194 30 86 / var(--tw-text-opacity, 1));
+  color: rgb(210 16 52 / var(--tw-text-opacity, 1));
 }
 
 .text-turquoise-deep {
@@ -1380,14 +1385,9 @@ h1, h2, h3, h4, h5, h6 {
   color: rgb(13 148 136 / var(--tw-text-opacity, 1));
 }
 
-.text-turquoise-tropical {
+.text-vanuatu-green {
   --tw-text-opacity: 1;
-  color: rgb(45 212 191 / var(--tw-text-opacity, 1));
-}
-
-.text-vanuatu-bright {
-  --tw-text-opacity: 1;
-  color: rgb(25 184 90 / var(--tw-text-opacity, 1));
+  color: rgb(0 149 67 / var(--tw-text-opacity, 1));
 }
 
 .text-white {
@@ -1456,7 +1456,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .hover\:text-gold:hover {
   --tw-text-opacity: 1;
-  color: rgb(212 168 67 / var(--tw-text-opacity, 1));
+  color: rgb(198 161 91 / var(--tw-text-opacity, 1));
 }
 
 .hover\:text-turquoise-deep:hover {

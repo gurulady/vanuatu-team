@@ -8,7 +8,7 @@
   }
   
   body {
-    @apply font-sans text-navy bg-cream;
+    @apply font-sans text-cream bg-cream;
     font-family: 'Inter', system-ui, sans-serif;
   }
 
@@ -27,7 +27,7 @@
   
   .btn-secondary {
     @apply px-8 py-4 border-2 border-gold text-gold font-bold rounded-[10px]
-           hover:bg-gold hover:text-navy-deep transition-all duration-300;
+           hover:bg-gold hover:text-black-volcanic transition-all duration-300;
     font-family: 'Inter', system-ui, sans-serif;
   }
   

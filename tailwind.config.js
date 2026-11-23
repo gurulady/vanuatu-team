@@ -22,12 +22,12 @@ module.exports = {
           deep: '#0d9488',
         },
         red: {
-          hibiscus: '#c21e56',
-          dark: '#9d174d',
+          hibiscus: '#D21034',
+          dark: '#B30D2A',
         },
         gold: {
-          DEFAULT: '#d4a843',
-          light: '#e8c76b',
+          DEFAULT: '#C6A15B',
+          light: '#d4b76e',
         },
         cream: {
           DEFAULT: '#faf8f3',
@@ -38,6 +38,9 @@ module.exports = {
         },
         black: {
           volcanic: '#111814',
+        },
+        jungle: {
+          green: '#123D28',
         },
       },
       fontFamily: {
