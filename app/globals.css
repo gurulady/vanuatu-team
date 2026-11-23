@@ -8,7 +8,7 @@
   }
   
   body {
-    @apply font-sans text-jungle-green bg-coconut-ivory;
+    @apply font-sans text-navy bg-cream;
     font-family: 'Inter', system-ui, sans-serif;
   }
 
@@ -19,22 +19,15 @@
 
 @layer components {
   .btn-primary {
-    @apply px-8 py-4 bg-savage-green text-volcanic-black font-bold rounded-[10px]
-           hover:bg-[#8cff5c] transition-all duration-300
+    @apply px-8 py-4 bg-red-hibiscus text-white font-bold rounded-[10px]
+           hover:bg-red-dark transition-all duration-300
            transform hover:scale-105 shadow-lg;
     font-family: 'Inter', system-ui, sans-serif;
   }
   
   .btn-secondary {
-    @apply px-8 py-4 border-2 border-savage-green text-savage-green font-bold rounded-[10px]
-           hover:bg-savage-green hover:text-volcanic-black transition-all duration-300;
-    font-family: 'Inter', system-ui, sans-serif;
-  }
-  
-  .btn-ruby {
-    @apply px-8 py-4 bg-hibiscus-red text-white font-bold rounded-[10px]
-           hover:bg-[#d4264a] transition-all duration-300
-           transform hover:scale-105 shadow-lg;
+    @apply px-8 py-4 border-2 border-gold text-gold font-bold rounded-[10px]
+           hover:bg-gold hover:text-navy-deep transition-all duration-300;
     font-family: 'Inter', system-ui, sans-serif;
   }
   
@@ -52,7 +45,7 @@
   }
   
   .card-modern {
-    @apply bg-white rounded-2xl p-8 md:p-10 shadow-lg border border-tropical-leaf/10
-           hover:shadow-xl hover:border-tropical-leaf/30 transition-all duration-300;
+    @apply bg-white rounded-2xl p-8 md:p-10 shadow-lg border border-purple-sunset/10
+           hover:shadow-xl hover:border-purple-sunset/30 transition-all duration-300;
   }
 }

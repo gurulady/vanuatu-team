@@ -13,11 +13,11 @@ export default function Navigation() {
   ]
 
   return (
-    <header className="bg-coconut-ivory/95 backdrop-blur-sm sticky top-0 z-50 shadow-sm">
+    <header className="bg-cream/95 backdrop-blur-sm sticky top-0 z-50 shadow-sm border-b border-purple-sunset/10">
       <div className="container-content">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <a href="#" className="heading-serif text-xl md:text-2xl text-jungle-green tracking-wide">
+          <a href="#" className="heading-serif text-xl md:text-2xl text-navy tracking-wide">
             VANUATU BRANDSAVAGE TEAM
           </a>
 
@@ -27,14 +27,14 @@ export default function Navigation() {
               <a
                 key={link.label}
                 href={link.href}
-                className="text-jungle-green font-medium hover:text-lagoon-blue transition-colors"
+                className="text-navy font-medium hover:text-turquoise-deep transition-colors"
               >
                 {link.label}
               </a>
             ))}
             {/* Team Emblem - 70-80px circular stamp */}
             <div 
-              className="rounded-full border-2 border-island-gold shadow-lg overflow-hidden flex-shrink-0"
+              className="rounded-full border-2 border-gold shadow-lg overflow-hidden flex-shrink-0"
               style={{ width: '75px', height: '75px' }}
             >
               <img
@@ -51,7 +51,7 @@ export default function Navigation() {
           {/* Mobile: Emblem + Hamburger */}
           <div className="flex items-center gap-3 md:hidden">
             <div 
-              className="rounded-full border-2 border-island-gold shadow-md overflow-hidden flex-shrink-0"
+              className="rounded-full border-2 border-gold shadow-md overflow-hidden flex-shrink-0"
               style={{ width: '50px', height: '50px' }}
             >
               <img
@@ -65,7 +65,7 @@ export default function Navigation() {
             </div>
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="text-jungle-green p-2"
+              className="text-navy p-2"
               aria-label="Toggle menu"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -81,13 +81,13 @@ export default function Navigation() {
 
         {/* Mobile Menu */}
         {mobileOpen && (
-          <div className="md:hidden pb-4 border-t border-tropical-leaf/20">
+          <div className="md:hidden pb-4 border-t border-purple-sunset/10">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="block py-3 text-jungle-green font-medium hover:text-lagoon-blue transition-colors"
+                className="block py-3 text-navy font-medium hover:text-turquoise-deep transition-colors"
               >
                 {link.label}
               </a>

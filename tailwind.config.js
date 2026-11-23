@@ -8,29 +8,29 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        jungle: {
-          green: '#123D28',
+        navy: {
+          DEFAULT: '#1a2744',
+          deep: '#0f1a2e',
+          light: '#2a3f5f',
         },
-        savage: {
-          green: '#79FF36',
+        purple: {
+          sunset: '#6b4c7f',
+          light: '#9b7cb6',
         },
-        tropical: {
-          leaf: '#3E8B50',
+        turquoise: {
+          tropical: '#2dd4bf',
+          deep: '#0d9488',
         },
-        lagoon: {
-          blue: '#08A6B5',
+        red: {
+          hibiscus: '#c21e56',
+          dark: '#9d174d',
         },
-        hibiscus: {
-          red: '#B91F3D',
+        gold: {
+          DEFAULT: '#d4a843',
+          light: '#e8c76b',
         },
-        island: {
-          gold: '#E4B83F',
-        },
-        volcanic: {
-          black: '#111814',
-        },
-        coconut: {
-          ivory: '#FFF9EE',
+        cream: {
+          DEFAULT: '#faf8f3',
         },
       },
       fontFamily: {
